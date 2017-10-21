@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './components/counter';
-import Guesses from './components/guesses';
-import GuessInput from './components/guess-input';
-import Faqs from './components/faqs';
-import Reset from './components/reset';
+import Counter from './counter';
+import Guesses from './guesses';
+import GuessInput from './guess-input';
+import FaqsButton from './faqs-button';
+import Reset from './reset';
 
 export default class GameInterface extends React.Component{
 	constructor(props){
@@ -12,21 +12,33 @@ export default class GameInterface extends React.Component{
 		this.state = {
 			counter: '',
 			guess: '',
-			last_guess: []
+			last_guess: [],
+			isToggled: true,
+			resetApp: true
 		}
+	}
+
+	update(guess){
+		this.setState({
+			guess: guess
+		});
 	}
 
 	render(){
 		return(
-			<div class="container">
-				<Faqs />
-				<Reset />
-				<div class="main">
+			<div className="container">
+				<FaqsButton onClick={this.onClick} letsToggle={this.state.isToggled ? '+FAQS' : 'CLOSE'}/>
+				<Reset onClick={this.onClick} resetApp={this.state.resetApp ? ' + RESET' : 'HIDE'}/>
+				<div className="main">
+					<h1>HOT or Cold</h1>
 					<GuessInput />
-					<Counter />
+					<Counter
+						id="count"
+						label="count"
+						value={this.state.counter} />
 				</div>
 				<div>
-					<Guesses />
+					<Guesses value={this.state.last_guess} onChange={this.update.bind(this)} />
 				</div>
 			</div>
 		)
