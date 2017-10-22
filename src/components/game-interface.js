@@ -4,18 +4,21 @@ import Counter from './counter';
 import Guesses from './guesses';
 import GuessInput from './guess-input';
 import FaqsButton from './faqs-button';
+import Hints from './hints';
 import Reset from './reset';
 
 export default class GameInterface extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			counter: '',
-			guess: '',
-			last_guess: [],
+			hints: "Guess my Number",   		// the hints for each guess
+			guess: '',   		// the input value of the user
+			counter: 0, 		// Keeps track of how many guesses
+			last_guess: [], // the appended information being tracked for the user
 			isToggled: true,
 			resetApp: true
 		}
+		this.displayHints = this.displayHints.bind(this);
 	}
 
 	update(guess){
@@ -24,21 +27,30 @@ export default class GameInterface extends React.Component{
 		});
 	}
 
+	displayHints(hints){
+		this.setState({
+			hints: hints
+		});
+	}
+
 	render(){
 		return(
 			<div className="container">
 				<FaqsButton onClick={this.onClick} letsToggle={this.state.isToggled ? '+FAQS' : 'CLOSE'}/>
 				<Reset onClick={this.onClick} resetApp={this.state.resetApp ? ' + RESET' : 'HIDE'}/>
-				<div className="main">
-					<h1>HOT or Cold</h1>
+				<div className="main scale-up-center">
+					<div className="app_title">
+						<h1>HOT <span>or</span> COLD</h1>
+					</div>
+					<Hints value={this.state.hints} onChange={this.displayHints.bind(this)} />
 					<GuessInput />
 					<Counter
 						id="count"
 						label="count"
 						value={this.state.counter} />
-				</div>
-				<div>
-					<Guesses value={this.state.last_guess} onChange={this.update.bind(this)} />
+					<ul className="user_guesses">
+						<Guesses value={this.state.last_guess} onChange={this.update.bind(this)} />
+					</ul>
 				</div>
 			</div>
 		)

@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function Guesses(props){
 	return (
-		<div className="user_guesses">
+		<li>
 		 <button className="tiny_guess">{props.value}</button>
-		</div> 
+		</li>
 	)
 }

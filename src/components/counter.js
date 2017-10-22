@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Counter(props){
 	return (
-		<h3 className="user_interface" id={props.id} label={props.label}>
-		  Guess Count:<span>#{props.value}</span>
-		</h3>
+		<div className="counting">
+			<h3 id={props.id}>You've Guessed: <span>{props.value}</span> Times</h3>
+		</div>
 	)
 }
 

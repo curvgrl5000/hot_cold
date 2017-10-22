@@ -1,5 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black|Jaldi:400,700|Raleway:900');
+
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
+
+.container {
+    padding: 2em;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #b1b6bc;
+}
+
+.main {
+    max-width: 35%;
+    min-width: 300px;
+    border: 10px solid black;
+    margin: 0 auto;
+    position: relative;
+    top: 15%;
+    transform: perspective(1px) translateY(-50%);
+
+}
+
+form.top_form {
+    background-color: #e1e5e9;
+    padding: 1.75rem 1rem;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.app_title {
+    background-color: black;
+    color: #bbc0c4;
+    text-align: center;
+    padding: 1rem;
+}
+
+.app_title span {
+    font-size: 2rem;
+    vertical-align: 8px;
+    color: #fff;
+}
+
+h1 {
+    display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+    font-size: 3rem;
+		font-family: 'Raleway', sans-serif;
+		letter-spacing: .25rem;
+}
+
+.hints {
+    background-color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+.hints > h2, .counting > h3 {
+    text-transform: uppercase;
+    font-family: 'Jaldi', sans-serif;
+    color: #000000;
+    margin: 0px;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    letter-spacing: .35rem;
+    font-size: 1.25rem;
+}
+
+.counting {
+    background-color: #b3b8be;
+    text-align: center;
+    padding: 1.25rem;
+}
+
+.counting > h3 {
+    font-size: 1.15em;
+    letter-spacing: 0.15em;
+}
+
+input#num {
+    border: none;
+    padding: .25em 1em;
+    margin-right: .5rem;
+    font-family: 'Jaldi', sans-serif;
+    width: 50%;
+    background-color: #fff;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: .25em;
+    font-size: 1.25em;
+}
+
+input#num:focus {
+    background-color: #c6d506;
+    border: 0px;
+    outline: none;
+    -webkit-transition: background-color 2s ease-out;
+    -moz-transition: background-color 2s ease-out;
+    -o-transition: background-color 2s ease-out;
+}
+
+button.guessing, button.info {
+    border: none;
+    padding: .25em .5em;
+    margin-right: .5rem;
+    font-size: 1.15em;
+    font-family: 'Jaldi', sans-serif;
+    width: 28%;
+    background-color: #4d5053;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: .25em;
+    font-size: 1.25em;
+}
+
+button.guessing:hover {
+    background-color: black;
+    -webkit-transition: background-color 2s ease-out;
+    -moz-transition: background-color 2s ease-out;
+    -o-transition: background-color 2s ease-out;
+}
+
+button:focus{
+		border: 0px;
+	  outline: none;
+}
+
+button.info {
+	width: fit-content;
+}
+
+span {
+    color: white;
+    text-underline-position: under;
+    letter-spacing: normal;
+    text-decoration-line: underline;
+}
+
+.user_guesses {
+    background-color: #161717;
+    text-align: center;
+    padding: 1.75rem;
+}
+
+.scale-up-center {
+	-webkit-animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+ul.user_guesses {
+    margin: 0;
+}
+
+li {
+	text-align: left;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
