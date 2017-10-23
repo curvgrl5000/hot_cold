@@ -25,6 +25,8 @@ export default class GameInterface extends React.Component{
 		this.setState({
 			guess: guess
 		});
+		console.log(guess);
+		this.state.guess = '';
 	}
 
 	displayHints(hints){
@@ -43,7 +45,9 @@ export default class GameInterface extends React.Component{
 						<h1>HOT <span>or</span> COLD</h1>
 					</div>
 					<Hints value={this.state.hints} onChange={this.displayHints.bind(this)} />
-					<GuessInput />
+					<GuessInput 
+						value={this.state.guess} 
+						onSubmit={value => this.update(value)} />
 					<Counter
 						id="count"
 						label="count"
