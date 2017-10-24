@@ -149,8 +149,20 @@ span {
 
 .user_guesses {
     background-color: #161717;
-    text-align: center;
+    text-align: left;
     padding: 1.75rem;
+}
+
+li {
+    display: -webkit-inline-box;
+}
+
+button.tiny_guess {
+    font-size: 1rem;
+    border-radius: .2em;
+    background-color: #c6d506;
+    margin: .2em;
+    border: none;
 }
 
 .scale-up-center {

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Counter from './counter';
 import Guesses from './guesses';
 import GuessInput from './guess-input';
@@ -14,7 +13,7 @@ export default class GameInterface extends React.Component{
 			guess: '',
 			hints: "Guess my Number",   		// the hints for each guess
 			counter: 0, 		// Keeps track of how many guesses
-			last_guess: [], // the appended information being tracked for the user
+			guesses:[],
 			isToggled: true,
 			resetApp: true
 		}
@@ -27,18 +26,13 @@ export default class GameInterface extends React.Component{
       });
       console.log(guess);
       this.setState((prevState, props) =>({
-      	counter: prevState.counter + 1
+      	counter: prevState.counter + 1,
       }));
-  }  
-
-	updateGuesses(guess){
-		this.setState({
-			guess
-		});
-		console.log(guess);
-		this.state.guess = '';
-	}
-
+      this.setState(prevState => ({
+      	guesses: [...prevState.guesses, {val:guess}]
+      }));
+  }
+  
 	displayHints(hints){
 		this.setState({
 			hints: hints
@@ -46,6 +40,10 @@ export default class GameInterface extends React.Component{
 	}
 
 	render(){
+		const checkGuess = [{ 
+			val: this.state.guesses
+		}];
+
 		return(
 			<div className="container">
 				<FaqsButton onClick={this.onClick} letsToggle={this.state.isToggled ? '+FAQS' : 'CLOSE'}/>
@@ -61,11 +59,7 @@ export default class GameInterface extends React.Component{
 						id="count"
 						label="count"
 						value={this.state.counter} />
-
-					<ul className="user_guesses">
-						<Guesses value={this.state.last_guess} onChange={this.updateGuesses.bind(this)} />
-					</ul>
-
+						<Guesses value={this.state.guesses} />
 				</div>
 			</div>
 		)
