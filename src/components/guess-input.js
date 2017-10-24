@@ -1,12 +1,48 @@
 import React from 'react';
 
-export default function SearchForm(props){
-	return(
-		<form className="top_form" onSubmit={event => event.preventDefault()}>
-			<input type="text" id="num" name="num" size='30'
-			placeholder="Input Number" 
-			value={props.key} />
-			<button className="guessing" onSubmit={event => props.onSubmit(event.target.value)}>Guess</button>
-		</form>
-	);
+export default class SearchForm extends React.Component{
+		constructor(props) {
+			super(props);
+			this.state = {
+				guess: ''
+			};
+			this.handleChange = this.handleChange.bind(this);
+			this.onSubmit = this.onSubmit.bind(this);
+		}
+
+		handleChange(event){
+			this.setState({
+        	guess: event.target.value
+        });
+		}
+
+		onSubmit(event) {
+        event.preventDefault();
+        console.log(this.state.guess);
+        const text = this.state.guess;
+        if (text && this.props.onAdd){
+        	this.props.onAdd(text);
+        }
+        this.setState({
+        	guess: ""
+        })
+    }
+
+		render() {
+		return(
+			<form className="guess_form" onSubmit={this.onSubmit}>
+				<input type="number" 
+				id="num" 
+				name="num" 
+				size='30'
+				placeholder="Input Number" 
+				value={this.state.guess}
+				onChange={this.handleChange} />
+				<button className="guessing" 
+					type="submit">Guess
+				</button>
+			</form>
+		);
+	}
 }
+
