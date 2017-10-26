@@ -41,8 +41,6 @@ export default class GameInterface extends React.Component{
 			function between(x, min, max) {
 	  		return x >= min && x <= max;
 			}
-
-			//const checker = Math.abs(guess - this.state.correctAnswer);
 	  	
 	  	let hints;
 		  if (between(guess, 1, 13)) {
