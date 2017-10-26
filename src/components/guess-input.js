@@ -12,8 +12,9 @@ export default class SearchForm extends React.Component{
 
 		handleChange(event){
 			this.setState({
-        	guess: event.target.value
+        	guess: event.target.value, 
         });
+			console.log(this.state.guess);
 		}
 
 		onSubmit(event) {
@@ -25,7 +26,7 @@ export default class SearchForm extends React.Component{
         }
         this.setState({
         	guess: ""
-        })
+        });
     }
 
 		render() {
