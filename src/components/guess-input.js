@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class SearchForm extends React.Component{
+export default class GuessInput extends React.Component{
 		constructor(props) {
 			super(props);
 			this.state = {
@@ -31,7 +31,7 @@ export default class SearchForm extends React.Component{
 
 		render() {
 		return(
-			<form className="guess_form" onSubmit={this.onSubmit}>
+			<form className="guess_form" onSubmit={e => this.onSubmit(e)}>
 				<input type="number" 
 				id="num" 
 				name="num" 
