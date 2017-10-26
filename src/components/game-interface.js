@@ -11,13 +11,14 @@ export default class GameInterface extends React.Component{
 		super(props);
 		this.state = {
 			guess: '',
-			hints: "Guess my Number", // the hints for each guess
+			hints: 'Guess my Number', // the hints for each guess
 			counter: 0, 		         // Keeps track of how many guesses
 			guesses:[],  // this is the array of guesses
 			isToggled: true,
-			resetApp: "+Reset"
-		}
-		this.displayHints = this.displayHints.bind(this);
+			resetApp: "+Reset",
+			//correctAnswer: Math.floor(Math.random()* 100) + 1
+			correctAnswer: 23
+		};
 	}
 
 	reset(){
@@ -25,62 +26,59 @@ export default class GameInterface extends React.Component{
 	}
 
 	addNum(guess) {
-      this.setState({
-          guess
-      });
-      console.log(guess);
+      console.log(this.state.correctAnswer);
+      
       this.setState((prevState, props) =>({
       	counter: prevState.counter + 1,
       }));
+      
       this.setState(prevState => ({
       	guesses: [...prevState.guesses, {val:guess}]
       }));
-  }
-  
-	displayHints(hints){
-		this.setState({
-			hints: hints
-		});
-	}
 
-	render(){
-		const checkGuess = function(guess) {
-
+			guess = parseInt(guess, 10);
+			
 			function between(x, min, max) {
 	  		return x >= min && x <= max;
 			}
 
-			function hints(num) {
-		  	var message = '' ;
-			  if (between(num, 1, 13)) {
-			    message = "You're living in an Eskimo";
-			  }
-			  if (between(num, 14, 20)) {
-			    message = "You're getting warmer!";
-			  }
-			  if (between(num, 21, 35)) {
-			    message = "You're scorching hot!";
-			  }
-			  if (between(num, 36, 51)) {
-			    message = "Back to the ice-age!";
-			  }
-			  return message;
-			}
+			//const checker = Math.abs(guess - this.state.correctAnswer);
+	  	
+	  	let hints;
+		  if (between(guess, 1, 13)) {
+		    hints = "You're living in an Eskimo";
+		  }
+		  if (between(guess, 14, 20)) {
+		    hints = "You're getting warmer!";
+		  }
+		  if (between(guess, 21, 35)) {
+		    hints = "You're scorching hot!";
+		  }
+		  if (between(guess, 36, 100)) {
+		    hints = "Back to the ice-age!";
+		  }
+		  else if (guess === this.state.correctAnswer){
+		  	hints = "Success!"
+		  }
+		  this.setState({
+		  	hints
+		  });
+			  
 		}
 
-		checkGuess(this.state.guess);
-  
+	render(){
 		return(
 			<div className="container">
-				<FaqsButton onClick={this.onClick} letsToggle={this.state.isToggled ? '+FAQS' : 'CLOSE'}/>
-				<Reset onClick={this.reset} text={this.state.resetApp}/>
-				
+				<div className="top_nav">
+					<FaqsButton />
+					<Reset onClick={this.reset} text={this.state.resetApp}/>
+				</div>
 				<div className="main scale-up-center">
 					<div className="app_title">
 						<h1>HOT <span>or</span> COLD</h1>
 					</div>
-					<Hints value={this.state.hints} onChange={this.displayHints.bind(this)} />
-					<GuessInput onAdd={guess => this.addNum(guess)} />
+					<Hints value={this.state.hints} />
+					<GuessInput onAdd={(guess) => this.addNum(guess)}  />
 					<Counter
 						id="count"
 						label="count"
@@ -91,3 +89,4 @@ export default class GameInterface extends React.Component{
 		)
 	}
 }
+
