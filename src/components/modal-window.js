@@ -10,9 +10,12 @@ export default class ModalWindow extends React.Component {
 
     render() {
         return (
-            <div className="overlay" id="modal">
+            <div className="overlay scale-up-center" id="modal">
                 <div className="content">
-                    <h3>Guess My Number</h3>
+                    <h1>HOT <span>or</span> COLD</h1>
+                    <div className="fixed">
+                        <a className="close" href="#" onClick={e => this.onClose(e)}>X</a>
+                    </div>
                     <div>
                         <p>This is better than Tetris! Start with the following steps: </p>
                         <ul>

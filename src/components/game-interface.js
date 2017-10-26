@@ -15,9 +15,8 @@ export default class GameInterface extends React.Component{
 			counter: 0, 		         // Keeps track of how many guesses
 			guesses:[],  // this is the array of guesses
 			isToggled: true,
-			resetApp: "+Reset",
-			//correctAnswer: Math.floor(Math.random()* 100) + 1
-			correctAnswer: 23
+			resetApp: "+New Game",
+			correctAnswer: Math.floor(Math.random()* 100) + 1
 		};
 	}
 
@@ -37,28 +36,31 @@ export default class GameInterface extends React.Component{
       }));
 
 			guess = parseInt(guess, 10);
+			if (isNaN(guess)){
+	  		this.setState({
+	  			hints: "Input a Number to Play!"
+	  		});
+	  		return;
+	  	}
 			
-			function between(x, min, max) {
-	  		return x >= min && x <= max;
-			}
-
-			//const checker = Math.abs(guess - this.state.correctAnswer);
+			const checker = Math.abs(guess - this.state.correctAnswer);
 	  	
 	  	let hints;
-		  if (between(guess, 1, 13)) {
-		    hints = "You're living in an Eskimo";
+	  	
+		  if (checker >= 50) {
+		    hints = "You're living in an Eskimo!";
 		  }
-		  if (between(guess, 14, 20)) {
-		    hints = "You're getting warmer!";
+		  else if (checker >= 30) {
+		    hints = "You're still cold!";
 		  }
-		  if (between(guess, 21, 35)) {
-		    hints = "You're scorching hot!";
+		  else if (checker >= 10) {
+		    hints = "You're getting warm";
 		  }
-		  if (between(guess, 36, 100)) {
-		    hints = "Back to the ice-age!";
+		  else if (checker >= 1) {
+		    hints = "You're pretty hot!";
 		  }
-		  else if (guess === this.state.correctAnswer){
-		  	hints = "Success!"
+		  else if (guess === this.state.correctAnswer) {
+		  	hints = 'Success!! \nStart A New Game!';
 		  }
 		  this.setState({
 		  	hints
