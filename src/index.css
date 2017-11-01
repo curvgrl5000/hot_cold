@@ -244,12 +244,43 @@ li {
     height: auto;
     width: 75%;
     border-radius: 3px;
-    top: 10%;
+    top: 20%;
     margin: 0 auto;
     border: none;
     text-align: center;
     padding: 1em 0em;
 }
+
+.content:before, .content:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 10px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0 15px 10px rgba(0,0,0, 0.7);
+    -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+}
+
+.content:after {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+}
+
 
 .content h3 {
     margin: 0;
@@ -289,20 +320,28 @@ li {
 }
 
 .content > div ul li strong{
-    text-decoration: underline;
+    text-decoration: none ;
 }
 
 .content > div a, .content > div.fixed a {
     font-size: 1em;
     color: rgb(149, 165, 166);
-    padding-top: 0.5em;
-    padding-right: 2em;
-    padding-bottom: 0.5em;
-    padding-left: 2em;
+    padding: 1em;
     font-weight: 600;
     background: rgb(31, 37, 61);
     border-radius: 7px;
     text-decoration: none;
+    position: relative;
+    display: block;
+    text-transform: uppercase;
+}
+
+a.close:hover, .content > div.fixed a.close:hover{
+    background-color:#a54949;
+    color:white;
+    -webkit-transition: background-color 1s ease-out;
+    -moz-transition: background-color 1s ease-out;
+    -o-transition: background-color 1s ease-out;
 }
 
 .content > div.fixed {

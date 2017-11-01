@@ -17,7 +17,7 @@ export default class ModalWindow extends React.Component {
                         <a className="close" href="#" onClick={e => this.onClose(e)}>X</a>
                     </div>
                     <div>
-                        <p>This is better than Tetris! Start with the following steps: </p>
+                        <p>Better than Tetris! Start with the following steps: </p>
                         <ul>
                             <li>1. A <strong>random secret number</strong> is chosen between 1 to 100.</li>
                             <li>2. You need to <strong>guess</strong> it with a set of clues left with each guess.</li>
