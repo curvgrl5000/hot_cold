@@ -10,10 +10,9 @@ export default class GameInterface extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			guess: '',
 			hints: 'Guess my Number', // the hints for each guess
 			counter: 0, 		         // Keeps track of how many guesses
-			guesses:[],  // this is the array of guesses
+			guesses:[],  						// this is the array of guesses
 			isToggled: true,
 			resetApp: "+New Game",
 			correctAnswer: Math.floor(Math.random()* 100) + 1
@@ -26,6 +25,9 @@ export default class GameInterface extends React.Component{
 
 	addNum(guess) {
       console.log(this.state.correctAnswer);
+      console.log(guess);
+      console.log(GuessInput);
+      console.log(this.state.hints.toUpperCase());
       
       this.setState((prevState, props) =>({
       	counter: prevState.counter + 1,
@@ -79,7 +81,7 @@ export default class GameInterface extends React.Component{
 					<div className="app_title">
 						<h1>HOT <span>or</span> COLD</h1>
 					</div>
-					<Hints value={this.state.hints} />
+					<Hints value={this.state.hints.toUpperCase()} />
 					<GuessInput onAdd={(guess) => this.addNum(guess)}  />
 					<Counter
 						id="count"
