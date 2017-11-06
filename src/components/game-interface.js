@@ -29,9 +29,9 @@ export default class GameInterface extends React.Component{
       console.log(GuessInput);
       console.log(this.state.hints.toUpperCase());
       
-      this.setState((prevState, props) =>({
-      	counter: prevState.counter + 1,
-      }));
+      // this.setState((prevState, props) =>({
+      // 	counter: prevState.counter + 1,
+      // }));
       
       this.setState(prevState => ({
       	guesses: [...prevState.guesses, {val:guess}]
@@ -66,9 +66,15 @@ export default class GameInterface extends React.Component{
 		  }
 		  this.setState({
 		  	hints
-		  });
-			  
-		}
+		  });			  
+	}
+
+  onclick(type, counter){
+  	console.log(this.state.counter + " choices with the onClick method");
+      this.setState(prevState => {
+         return {counter: type === 'onSubmit' ? prevState.counter + 1: prevState.counter + 1}
+      });
+  }
 
 	render(){
 		return(
@@ -82,7 +88,7 @@ export default class GameInterface extends React.Component{
 						<h1>HOT <span>or</span> COLD</h1>
 					</div>
 					<Hints value={this.state.hints.toUpperCase()} />
-					<GuessInput onAdd={(guess) => this.addNum(guess)}  />
+					<GuessInput onAdd={(guess) => this.addNum(guess)} onClick={this.onclick.bind(this, 'onSubmit')}/>
 					<Counter
 						id="count"
 						label="count"

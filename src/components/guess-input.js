@@ -24,8 +24,11 @@ export default class GuessInput extends React.Component{
         if (text && this.props.onAdd){
         	this.props.onAdd(text);
         }
+        if (this.props.onClick){
+        	this.props.onClick();
+        }
         this.setState({
-        	guess: ""
+        	guess: "",
         });
     }
 
@@ -40,7 +43,7 @@ export default class GuessInput extends React.Component{
 				value={this.state.guess}
 				onChange={this.handleChange} />
 				<button className="guessing" 
-					type="submit">Guess
+					type="onSubmit">Guess
 				</button>
 			</form>
 		);
