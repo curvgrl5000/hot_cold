@@ -11,7 +11,10 @@ body {
     padding: 1em;
     overflow: hidden;
     height: 100vh;
-    background-color: #a9b3c0;
+    background-color: #8297a8;
+    background-color: #8297a8;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 43px, rgba(255, 255, 255, 0.5) 75px, rgba(255, 255, 255, 0.5) 150px);
+
 }
 
 .top_nav {
@@ -137,13 +140,13 @@ button.info {
 button.info.left{
     background-color: #798ea5;
     float: left;
-    box-shadow: -2px -2px 7px #33404e;
+    box-shadow: -7px 10px 1px #33404e;
 }
 
 button.info.right{
     background-color: #798ea5;
     float: right;
-    box-shadow: 2px -2px 7px #33404e;
+    box-shadow: -7px 10px 1px #33404e;
 }
 
 button.info:hover{
