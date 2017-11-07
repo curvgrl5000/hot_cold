@@ -18,7 +18,7 @@ export default class Faqs extends React.Component {
 	render() {
 		let modalWindow;
 		if (this.state.showModal) {
-			modalWindow = <ModalWindow onClose={() => this.toggleModal() } />;
+			modalWindow = <ModalWindow className="scale-down-center" onClose={() => this.toggleModal() } />;
 		}
 
 		return (

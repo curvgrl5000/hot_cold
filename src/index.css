@@ -9,12 +9,13 @@ body {
 
 .container {
     padding: 1em;
+    padding-bottom: 0em;
+    padding-top: 0em;
     overflow: hidden;
     height: 100vh;
     background-color: #8297a8;
-    background-color: #8297a8;
     background-image: repeating-linear-gradient(45deg, transparent, transparent 43px, rgba(255, 255, 255, 0.5) 75px, rgba(255, 255, 255, 0.5) 150px);
-
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 44px, rgba(255, 255, 255, 0.25) 76px, rgb(199, 241, 18) 145px);
 }
 
 .top_nav {
@@ -23,13 +24,13 @@ body {
 
 .main {
     max-width: 35%;
-    min-width: 300px;
+    min-width: 325px;
     border: 10px solid black;
     margin: 0 auto;
     position: relative;
     top: 15%;
     transform: perspective(1px) translateY(-50%);
-
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
 }
 
 form.guess_form {
@@ -84,9 +85,9 @@ h1 {
 }
 
 .counting {
-    background-color: #b3b8be;
+    background-color: rgb(165, 174, 185);
     text-align: center;
-    padding: 1.25rem;
+    padding: 1.75rem;
 }
 
 .counting > h3 {
@@ -123,7 +124,7 @@ button.guessing, button.info {
     font-size: 1.15em;
     font-family: 'Jaldi', sans-serif;
     width: 28%;
-    background-color: #7f8790;
+    background-color: #798ea5;
     color: white;
     text-transform: uppercase;
     font-weight: 500;
@@ -135,6 +136,7 @@ button.info {
     width: fit-content;
     font-weight: 700;
     font-size: 1.15em;
+    margin-top: 1rem;
 }
 
 button.info.left{
@@ -150,7 +152,7 @@ button.info.right{
 }
 
 button.info:hover{
-    background-color:#a54949;
+    background-color:#de6072;
     -webkit-transition: background-color 1s ease-out;
     -moz-transition: background-color 1s ease-out;
     -o-transition: background-color 1s ease-out;
@@ -168,12 +170,15 @@ button:focus{
 	outline: none;
 }
 
-
-span {
+h1 span, span {
     color: white;
     text-underline-position: under;
     letter-spacing: normal;
     text-decoration-line: underline;
+}
+
+h1 span {
+    font-size: 2.5rem;
 }
 
 .user_guesses {
@@ -189,15 +194,32 @@ li {
 button.tiny_guess {
     font-size: 1rem;
     border-radius: .2em;
-    background-color: #c6d506;
+    background-color: #d87065;
     margin: .2em;
     border: none;
+    color: white;
+    padding: 6px 8px 6px;
 }
 
 .scale-up-center {
 	-webkit-animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	        animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
+
+.scale-down-center {
+    -webkit-animation: transformDown .25s;
+            animation: transformDown .25s;
+}
+
+@keyframes transformDown {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
 
 ul.user_guesses {
     margin: 0;
@@ -240,16 +262,18 @@ li {
     z-index: 1000;
     background-color: #e74c3c;
     background-image: repeating-linear-gradient(45deg, transparent, transparent 75px, rgba(255, 255, 255, 0.5) 75px, rgba(255, 255, 255, 0.5) 150px);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 44px, rgba(255, 255, 255, 0.25) 76px, rgb(199, 241, 18) 150px);
 }
 
 .content {
     color: #fff;
     background: #94a2b0;
+    background-color: rgb(165, 174, 185);
     position: relative;
     height: auto;
     width: 75%;
     border-radius: 3px;
-    top: 20%;
+    top: 13%;
     margin: 0 auto;
     border: none;
     text-align: center;
@@ -308,7 +332,9 @@ li {
 
 .content > div p {
     padding: 0px;
-    line-height: 1.25em;
+    line-height: 2.5em;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.35rem;
 }
 
 .content > div ul {
@@ -342,7 +368,7 @@ li {
 }
 
 a.close:hover, .content > div.fixed a.close:hover{
-    background-color:#a54949;
+    background-color: #de6072;
     color:white;
     -webkit-transition: background-color 1s ease-out;
     -moz-transition: background-color 1s ease-out;
