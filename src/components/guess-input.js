@@ -36,12 +36,13 @@ export default class GuessInput extends React.Component{
 		return(
 			<form className="guess_form" onSubmit={e => this.onSubmit(e)}>
 				<input type="number" 
-				id="num" 
-				name="num" 
-				size='30'
-				placeholder="Input Number" 
-				value={this.state.guess}
-				onChange={this.handleChange} />
+				  id="num" 
+				  name="num" 
+				  size='30'
+				  placeholder="Input Number" 
+				  value={this.state.guess}
+				  onChange={this.handleChange} />
+				  
 				<button className="guessing" 
 					type="onSubmit">Guess
 				</button>

@@ -69,11 +69,13 @@ export default class GameInterface extends React.Component{
 		  });			  
 	}
 
-  onclick(type, counter){
+  onclick(type, counter, guess){
   	console.log(this.state.counter + " choices with the onClick method");
+  	if (guess !== "undefined") {
       this.setState(prevState => {
-         return {counter: type === 'onSubmit' ? prevState.counter + 1: prevState.counter + 1}
+         return {counter: type === 'onSubmit' ? prevState.counter + 1 : "undefined"}
       });
+    }
   }
 
 	render(){

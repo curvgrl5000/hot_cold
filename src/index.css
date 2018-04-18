@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: black;
 }
 
 .container {
@@ -56,8 +57,8 @@ form.guess_form {
 
 h1 {
     display: block;
-    -webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
     font-weight: bold;
@@ -273,7 +274,7 @@ li {
     height: auto;
     width: 75%;
     border-radius: 3px;
-    top: 13%;
+    top: 5%;
     margin: 0 auto;
     border: none;
     text-align: center;
@@ -323,23 +324,26 @@ li {
 }
 
 .content > div {
-    padding: 15px 10%;
+    padding: 9px 11%;
     margin: 0;
     font-weight: 300;
-    font-size: 1.15em;
+    font-size: 1em;
     text-align: center;
 }
 
 .content > div p {
     padding: 0px;
-    line-height: 2.5em;
+    line-height: 2.5rem;
     font-family: 'Pacifico', cursive;
     font-size: 1.35rem;
+    color: #caec1a;
+    margin: 0 1em 1em;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
 }
 
 .content > div ul {
     margin-bottom: 0px;
-    padding: 0 0 10px 10px;
+    padding: 0 0 10px 0px;
     text-align: left;
 }
 
@@ -365,6 +369,8 @@ li {
     position: relative;
     display: block;
     text-transform: uppercase;
+    max-width: 20rem;
+    margin: 0 auto;
 }
 
 a.close:hover, .content > div.fixed a.close:hover{
@@ -376,12 +382,27 @@ a.close:hover, .content > div.fixed a.close:hover{
 }
 
 .content > div.fixed {
-    position: absolute;
-    top: 0%;
-    right: -8%;
+    position: fixed;
+    top: 13%;
+    right: 1rem;
 }
 
 .content > div.fixed a {
     padding: 0.5em 0.78em;
     font-size: .75em;
+}
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+
+  .content > div.fixed {
+  position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 30px;
+    padding: 0px;
+  }
 }
