@@ -14,7 +14,7 @@ export default class ModalWindow extends React.Component {
                 <div className="content">
                     <h1>HOT <span>or</span> COLD</h1>
                     <div className="fixed">
-                        <a className="close" href="#" onClick={e => this.onClose(e)}>X</a>
+                        <a className="close" href="/" onClick={e => this.onClose(e)}>X</a>
                     </div>
                     <div>
                         <p>Better than Tetris! Start with the following steps: </p>
@@ -24,7 +24,7 @@ export default class ModalWindow extends React.Component {
                             <li>3. Each guess <strong>provides a strong hint</strong> on how close ("hot") or faroff ("cold") your guess is.</li>
                         </ul>
                         <p>Delight in Randon Numbers</p>
-                        <a className="close" href="#" onClick={e => this.onClose(e)}>Get Going!</a>
+                        <a className="close" href="/" onClick={e => this.onClose(e)}>Get Going!</a>
                     </div>
                 </div>
             </div>
